@@ -155,8 +155,8 @@ def runner_server():
     #     hr=ModbusSequentialDataBlock(1, [random.randint(0, 100) for _ in range(100)]),
     # )
     storage=[ ModbusSlaveContext(
-        hr=ModbusSequentialDataBlock(1, [random.randint(0, 100) for _ in range(20)]),
-    )for i in range(1,201)]
+        hr=ModbusSequentialDataBlock(1, [random.randint(0, 100) for _ in range(3000)]),
+    )for i in range(1,50)]
     print(len(storage))
     identity = ModbusDeviceIdentification()
     identity.VendorName = 'Pymodbus'
@@ -166,12 +166,12 @@ def runner_server():
     identity.ModelName = 'Pymodbus Server'
     identity.MajorMinorRevision = '1.5'
 
-    slaves = list(range(1,201))
+    slaves = list(range(1,50))
     print(len(slaves))
     di={}
     for elem in slaves:
         di[elem] =storage[elem-1]
-
+    print(di)
 
 
 
